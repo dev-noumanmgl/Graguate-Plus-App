@@ -64,6 +64,7 @@ Widget DrawerViewWidget(BuildContext context) {
                     SizedBox(height: 16.0),
                     GestureDetector(
                       onTap: () {
+                        Navigator.of(context).pop();
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -178,6 +179,7 @@ Widget DrawerViewWidget(BuildContext context) {
                           style: TextStyle(fontSize: 16.0),
                         ),
                         onTap: () {
+                          Navigator.of(context).pop();
                           Navigator.push(
                             context,
                             MaterialPageRoute(

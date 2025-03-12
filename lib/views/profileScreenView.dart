@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:graduate_plus/database/userPrefs.dart';
 import 'package:graduate_plus/utilities/appColors.dart';
 import 'package:graduate_plus/views/badgeDetailScreenView.dart';
 import 'package:graduate_plus/views/postUploadScreenView.dart';
@@ -7,7 +8,35 @@ import 'package:graduate_plus/views/updateProfileScreenView.dart';
 import 'package:graduate_plus/views/uploadedPostDetailsScreenView.dart';
 import 'package:graduate_plus/widgets/gridViewCardWidget.dart';
 
-class ProfileScreenView extends StatelessWidget {
+class ProfileScreenView extends StatefulWidget {
+  @override
+  State<ProfileScreenView> createState() => _ProfileScreenViewState();
+}
+
+class _ProfileScreenViewState extends State<ProfileScreenView> {
+  String userName = "";
+  String userEmail = "";
+  String userId = "";
+
+  @override
+  void initState() {
+    super.initState();
+    _loadUserData();
+  }
+
+  /// Load user details from SharedPreferences
+  Future<void> _loadUserData() async {
+    String? name = await UserPrefs.getUserName();
+    String? email = await UserPrefs.getUserEmail();
+    String? id = await UserPrefs.getUserId();
+
+    setState(() {
+      userName = name ?? "Guest";
+      userEmail = email ?? "No Email";
+      userId = id ?? "Unknown";
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -73,7 +102,7 @@ class ProfileScreenView extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        'Pardeep Singh',
+                        userName,
                         style: TextStyle(
                           fontSize: 24.0,
                           fontWeight: FontWeight.bold,

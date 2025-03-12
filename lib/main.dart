@@ -1,12 +1,14 @@
 // Import necessary packages
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:graduate_plus/utilities/appColors.dart';
 import 'package:graduate_plus/views/splashScreenView.dart';
-import 'package:graduate_plus/views/welcomeScreenView.dart';
 
 // App entry point
-void main() {
-  runApp(const MyApp()); // Launches the application
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(const MyApp());
 }
 
 // Root widget of the app
