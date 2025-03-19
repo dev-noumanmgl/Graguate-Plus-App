@@ -1,0 +1,43 @@
+[
+    {
+      "id": "1",
+      "title": "Economics",
+      "date": "",
+      "location": "",
+      "publiserName": "BCU",
+      "description": ["During your time at university, it's essential to develop these key non-technical skills that align with your course and will be vital for your success after graduation.",
+
+"communication - presenting findings and explaining complex data in an easy to understand format",
+"numeracy - handling complex data and applying mathematical and statistical analysis methods",
+"problem solving - extracting business and financial information, interpreting data and drawing conclusions, and making recommendations",
+"computing - using both general IT applications and specialist software",
+"time management - completing assignments to deadline",
+"analytical and creative thinking skills - analysing research methods, data, conclusions and recommendations.",
+"The events listed below are designed to help you start building these crucial skills, offering insights into what employers look for and how you can apply them to your future career."],
+      "image": "","videoURL": "",
+      "pdfName": "",
+      "like": 67
+    },
+    {
+        "id": "2",
+        "title": "Business Management",
+        "date": "",
+        "location": "",
+        "publiserName": "BCU",
+        "description": ["During your time at university, it's essential to develop these key non-technical skills that align with your course and will be vital for your success after graduation.",
+
+"appreciation of cultural differences",
+"communicating with different audiences",
+"critical thinking",
+"planning and management",
+"problem solving",
+"research and analysis",
+"teamwork.",
+"leadership and/or entrepreneurial skills",
+"The events listed below are designed to help you start building these crucial skills, offering insights into what employers look for and how you can apply them to your future career."],
+        "image": "","videoURL": "",
+      "pdfName": "",
+        "like": 28
+    }
+]
+  

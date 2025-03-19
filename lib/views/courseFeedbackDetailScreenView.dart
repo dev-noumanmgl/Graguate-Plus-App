@@ -1,14 +1,18 @@
 // Import necessary Flutter packages for UI components
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart'; // Provides iOS-style widgets
 import 'package:flutter/material.dart'; // Core Flutter UI components
 
 // Import custom utilities for colors, text styles, and widgets
 import 'package:graduate_plus/utilities/appColors.dart'; // Contains predefined color values
+import 'package:graduate_plus/utilities/models/courseModel.dart';
 import 'package:graduate_plus/utilities/textStyles.dart'; // Contains predefined text styles
 import 'package:graduate_plus/widgets/gridViewCardWidget.dart'; // Custom widget for displaying grid items
 
 // Main screen for the RBS Discovery Tool, which presents a categorized list of digital resources
 class Coursefeedbackdetailscreenview extends StatelessWidget {
+  final CoursesModel courses;
+  const Coursefeedbackdetailscreenview({super.key, required this.courses});
   @override
   Widget build(BuildContext context) {
     final size =
@@ -43,22 +47,23 @@ class Coursefeedbackdetailscreenview extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Banner Section - Displays an image at the top
-              Container(
-                height: 79, // Fixed height for the banner
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8.0), // Rounded corners
-                  image: DecorationImage(
-                    image: AssetImage(
-                        'assets/images/bcuFreelancingCourse.png'), // Background image
-                    fit: BoxFit.cover, // Ensures image fits without cropping
-                  ),
+              ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(8)),
+                child: CachedNetworkImage(
+                  imageUrl: courses.image,
+                  height: 79,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                  progressIndicatorBuilder: (context, url, downloadProgress) =>
+                      CupertinoActivityIndicator(),
+                  errorWidget: (context, url, error) => Icon(Icons.error),
                 ),
               ),
               SizedBox(height: 16.0), // Add spacing below the banner
 
               // Title Section - Displays the main heading of the page
               Text(
-                '2. Attend an industry panel event.', // Page title
+                courses.title, // Page title
                 style: TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
@@ -97,7 +102,7 @@ class Coursefeedbackdetailscreenview extends StatelessWidget {
                       ),
                       SizedBox(width: 8), // Space between image and text
                       Text(
-                        "Jisc", // Author/Organization name
+                        courses.publiserName, // Author/Organization name
                         style: textStyleBold(blackColor),
                       ),
                     ],
@@ -108,10 +113,10 @@ class Coursefeedbackdetailscreenview extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Icon(CupertinoIcons.heart_fill,
+                      Icon(CupertinoIcons.heart,
                           size: 22.0, color: darkBlue), // Like icon
                       SizedBox(width: 4.0),
-                      Text('592'), // Like count
+                      Text("${courses.like}"), // Like count
 
                       SizedBox(width: 16.0),
                       Icon(CupertinoIcons.arrow_down_to_line,
@@ -124,7 +129,7 @@ class Coursefeedbackdetailscreenview extends StatelessWidget {
 
               // Description Section - Provides an overview of the available resources
               Text(
-                'During the week the alumni and guest speakers will share there experiences of getting into the industry. Attend one of these events and reflect on what you have learned.',
+                courses.description.join("\n"),
                 style: TextStyle(fontSize: 14.0, color: Colors.grey.shade600),
               ),
               SizedBox(height: 16.0), // Space before listing sections

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:graduate_plus/database/userPrefs.dart';
 import 'package:graduate_plus/utilities/appColors.dart';
 import 'package:graduate_plus/views/badgeDetailScreenView.dart';
-import 'package:graduate_plus/views/postUploadScreenView.dart';
 import 'package:graduate_plus/views/updateProfileScreenView.dart';
 import 'package:graduate_plus/views/uploadedPostDetailsScreenView.dart';
 import 'package:graduate_plus/widgets/gridViewCardWidget.dart';
@@ -24,7 +23,7 @@ class _ProfileScreenViewState extends State<ProfileScreenView> {
     _loadUserData();
   }
 
-  /// Load user details from SharedPreferences
+  // Load user details from SharedPreferences
   Future<void> _loadUserData() async {
     String? name = await UserPrefs.getUserName();
     String? email = await UserPrefs.getUserEmail();

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:graduate_plus/utilities/appColors.dart';
 
 // GridViewCardWidget: A customizable card widget for displaying posts with image, title, likes, and other details.
-class GridViewCardWidget extends StatelessWidget {
+class GridViewCardWidget extends StatefulWidget {
   final String imagePath,
       postedDate,
       postedBy; // Path for the image, date posted, and name of the poster
@@ -19,6 +19,11 @@ class GridViewCardWidget extends StatelessWidget {
     this.hasLogo = false, // Default value is false if not provided
   });
 
+  @override
+  State<GridViewCardWidget> createState() => _GridViewCardWidgetState();
+}
+
+class _GridViewCardWidgetState extends State<GridViewCardWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,7 +46,7 @@ class GridViewCardWidget extends StatelessWidget {
                 borderRadius: BorderRadius.vertical(
                     top: Radius.circular(8.0)), // Rounded top corners
                 child: Image.asset(
-                  imagePath, // Image source path
+                  widget.imagePath, // Image source path
                   height: 120.0, // Image height
                   width: double.infinity, // Full width of the container
                   fit: BoxFit.cover, // Cover the entire area
@@ -58,7 +63,7 @@ class GridViewCardWidget extends StatelessWidget {
 
                     // Title of the post
                     Text(
-                      title,
+                      widget.title,
                       style: TextStyle(
                         fontSize: 14.0,
                         fontWeight: FontWeight.bold,
@@ -72,47 +77,47 @@ class GridViewCardWidget extends StatelessWidget {
                     SizedBox(height: 8.0), // Spacing below the title
 
                     // Display 'Posted by' row only if postedBy is not empty
-                    postedBy.isNotEmpty
+                    widget.postedBy.isNotEmpty
                         ? Row(
                             mainAxisAlignment: MainAxisAlignment
                                 .spaceBetween, // Spread out elements
                             children: [
                               Text("Posted by:",
                                   style: TextStyle(fontSize: 10)), // Label text
-                              Text(postedBy,
+                              Text(widget.postedBy,
                                   style: TextStyle(
                                       fontSize: 12)), // Name of the poster
                             ],
                           )
                         : SizedBox(),
 
-                    postedBy.isNotEmpty
+                    widget.postedBy.isNotEmpty
                         ? SizedBox(height: 4.0)
                         : SizedBox(), // Conditional spacing
 
                     // Display posted date if it's provided
-                    postedDate.isNotEmpty
+                    widget.postedDate.isNotEmpty
                         ? Align(
                             alignment: Alignment
                                 .bottomRight, // Align date to the right
                             child: Text(
-                              postedDate,
+                              widget.postedDate,
                               style: TextStyle(fontSize: 12),
                             ),
                           )
                         : SizedBox(),
 
-                    postedDate.isNotEmpty
+                    widget.postedDate.isNotEmpty
                         ? SizedBox(height: 4.0)
                         : SizedBox(), // Conditional spacing
 
                     // Display likes only when postedBy is empty
-                    postedBy.isEmpty
+                    widget.postedBy.isEmpty
                         ? Row(
                             mainAxisAlignment:
                                 MainAxisAlignment.end, // Align to the right
                             children: [
-                              likes != 0
+                              widget.likes != 0
                                   ? Row(
                                       children: [
                                         Icon(CupertinoIcons.heart_fill,
@@ -121,7 +126,7 @@ class GridViewCardWidget extends StatelessWidget {
                                                 darkBlue), // Heart icon for likes
                                         SizedBox(width: 4.0),
                                         Text(
-                                          '$likes', // Number of likes
+                                          '${widget.likes}', // Number of likes
                                           style: TextStyle(
                                               fontSize: 12.0,
                                               color: blackColor),
@@ -139,9 +144,9 @@ class GridViewCardWidget extends StatelessWidget {
           ),
 
           // Display logo at a dynamic position if hasLogo is true
-          if (hasLogo)
+          if (widget.hasLogo)
             Positioned(
-              bottom: postedBy.isNotEmpty
+              bottom: widget.postedBy.isNotEmpty
                   ? 105
                   : 75, // Adjust position based on postedBy presence
               left: 8.0,

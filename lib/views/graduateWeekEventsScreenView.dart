@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:graduate_plus/utilities/appColors.dart';
-import 'package:graduate_plus/utilities/textStyles.dart';
-import 'package:graduate_plus/views/graduateWeekEventDetailScreenView.dart';
-import 'package:graduate_plus/widgets/gridViewCardWidget.dart';
+import 'package:graduate_plus/utilities/services/dataService.dart';
+import 'package:graduate_plus/widgets/eventsGridViewCardWidget.dart';
 
 /// A stateless widget representing the Graduate+ Week Events Screen.
 class GraduateWeekEventsScreenView extends StatelessWidget {
@@ -84,40 +83,12 @@ class GraduateWeekEventsScreenView extends StatelessWidget {
             SizedBox(height: 16.0), // Space before the grid view
 
             // Grid view displaying a single event card
-            GridView.builder(
-              shrinkWrap:
-                  true, // Ensures the GridView takes up only required space
-              physics:
-                  NeverScrollableScrollPhysics(), // Prevents inner scrolling
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, // Two cards per row
-                crossAxisSpacing: 16.0, // Horizontal space between cards
-                mainAxisSpacing: 16.0, // Vertical space between cards
-                childAspectRatio: 0.8, // Aspect ratio of the cards
-              ),
-              itemCount: 1, // Number of items in the grid
-              itemBuilder: (context, index) {
-                return GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              GraduateWeekEventDetailScreenView(),
-                        ));
-                  },
-                  child: GridViewCardWidget(
-                    postedBy: "", // Placeholder for posted by information
-                    postedDate: "", // Placeholder for posted date
-                    imagePath: 'assets/images/bcuFB.png', // Event image
-                    title: index % 2 == 0
-                        ? 'Question sets and reports for students'
-                        : 'Give feedback - it only takes 2 minutes', // Alternating titles
-                    likes: 213, // Number of likes for the event
-                    hasLogo: true, // Displays a logo if true
-                  ),
-                );
-              },
+            EventsGridViewCardWidgets(
+              hasLogo: true,
+              postedBy: '',
+              nextScreen: 'courseFeedback',
+              postedDate: '',
+              events: DataService.fetchSingleIntroEvent(),
             ),
             SizedBox(height: 16.0), // Spacer after the grid view
 
@@ -126,7 +97,13 @@ class GraduateWeekEventsScreenView extends StatelessWidget {
               "Suggested Graduate+ Week Events by Course",
               "Arts, Design, and Media Courses",
             ),
-            _buildGridView(context), // Grid of suggested events
+            EventsGridViewCardWidgets(
+              hasLogo: true,
+              postedBy: '',
+              nextScreen: 'courseFeedback',
+              postedDate: '',
+              events: DataService.fetchArtEvents(),
+            ),
 
             SizedBox(height: 24.0), // Spacer between sections
 
@@ -135,7 +112,13 @@ class GraduateWeekEventsScreenView extends StatelessWidget {
               "",
               "Business, Law and Social Sciences Courses",
             ),
-            _buildGridView(context), // Grid of suggested events
+            EventsGridViewCardWidgets(
+              hasLogo: true,
+              postedBy: '',
+              nextScreen: 'courseFeedback',
+              postedDate: '',
+              events: DataService.fetchBusinessEvents(),
+            ),
           ],
         ),
       ),
@@ -173,35 +156,6 @@ class GraduateWeekEventsScreenView extends StatelessWidget {
               ),
         SizedBox(height: 4), // Space below the titles
       ],
-    );
-  }
-
-  /// Helper function to build a grid view for events.
-  /// This displays two event cards per row with defined spacing.
-  Widget _buildGridView(BuildContext context) {
-    return GridView.builder(
-      shrinkWrap: true, // Ensures it takes minimal vertical space
-      physics:
-          NeverScrollableScrollPhysics(), // Prevents nested scrolling issues
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2, // Two cards per row
-        crossAxisSpacing: 16.0, // Space between cards horizontally
-        mainAxisSpacing: 16.0, // Space between cards vertically
-        childAspectRatio: 0.8, // Controls the width-to-height ratio of cards
-      ),
-      itemCount: 2, // Number of items displayed in the grid
-      itemBuilder: (context, index) {
-        return GridViewCardWidget(
-          postedBy: "", // Placeholder for posted by information
-          postedDate: "", // Placeholder for posted date
-          imagePath: 'assets/images/bcuFB.png', // Image displayed on the card
-          title: index % 2 == 0
-              ? 'Question sets and reports for students'
-              : 'Give feedback - it only takes 2 minutes', // Alternates titles based on index
-          likes: 213, // Number of likes displayed
-          hasLogo: true, // Shows logo if true
-        );
-      },
     );
   }
 }

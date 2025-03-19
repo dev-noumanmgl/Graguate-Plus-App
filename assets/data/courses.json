@@ -1,0 +1,68 @@
+[
+    {
+      "id": "1",
+      "title": "Foundation Year Law/nWhere do I stand now?",
+      "description": [
+        "The purpose of this diagnostic is for you to critically reflect on where you stand in terms of your readiness for study in terms of:",
+
+"Academic skills - things to do with note-taking, essay writing, and personal organisation.",
+"Personal skills - things to do with how you cope with difficulties and challenges.",
+"Employability - things to do with your knowledge about careers in the law and the development of skills to secure graduate employment.",
+"Please answer these questions, depending on your responses we can highlight, even at an early stage, the places where you could receive help and support."
+      ],
+      "image": "",
+      "video": "",
+      "publiserName": "BCU",
+      "like": 78
+    },
+    {
+      "id": "2",
+      "title": "MKT4024",
+      "description": ["This module is about finding out about you and developing your brand.",
+"On completion of this assignment, you will be able to demonstrate your ability to:",
+"·     Recognise and apply transferrable skills that are essential to a career in business",
+"·     Use key software applications that are commonly used in the workplace",
+"·     Demonstrate behaviours and attributes to improve their graduate employability",
+"·     Create a personal development plan to enhance their academic and professional performance"],
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxQQfLdzZVnWY0Td0XPnVAQZshPUd6-Zsh_A&s",
+      "video": "",
+      "publiserName": "BCU",
+      "like": 208
+    },
+    {
+        "id": "3",
+        "title": "ODP 4020 (external students & Apprentices)",
+        "description": ["This is a playlist for the external students studying to be ODP technicians and for apprentices.",
+
+"To get your bronze badge you need to do all 12 activities.",
+
+"The activities have been chosen to be accessible without being on site."],
+        "image": "",
+        "video": "","publiserName": "BCU",
+        "like": 200
+      },
+      {
+        "id": "4",
+        "title": "PI - Potentially Profile (ODP External)",
+        "description": ["At Graduate+ we have a passion for personality, everyone is unique, and we all have our own identity, let’s unlock yours with Potential.ly, a strength-based personality indicator!",
+
+"Potential.ly is an online platform which is designed to help you gain a deeper insight into why you do what you do, it’s a lot deeper than being labelled an introvert or extrovert.",
+
+"The profile takes only 15 minutes to complete, you’ll answer a series of short questions, and in doing this you’ll be presented with a unique PDF report of your personality and traits."],
+        "image": "https://images.unsplash.com/photo-1513151233558-d860c5398176?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb",
+        "video": "",
+        "publiserName": "BCU",
+        "like": 290
+      },
+      {
+        "id": "5",
+        "title": "Building resilience (ACC4032)",
+        "description": ["Career and Balance Coach Clara Wilcox will take you through the steps to build and maintain your confidence, even when times are challenging. This workshop will include: the importance of a growth mindset, identifying the learning curve and how this links to your confidence, and resilience: how to create ‘bouncebackability.",
+
+"Watch this﻿ video below and comment on what you have learnt in the text box below."],
+        "image": "",
+        "publiserName": "BCU",
+        "like": 170,
+        "video": "https://prod-yuna-origin.s3.eu-west-1.amazonaws.com/public/protected/5ec4eb1b464af50ba34e42e2/resources/YozozzJCMu9v3SIc/194124c1-4d78-41a9-ad69-30efb423e6a2_Graduate_week_How_to_Build_Confidence_and_Resilience_in_a_Changing_World-20231031_100142-Meeting_Recording_(1).mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250319T023239Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3599&X-Amz-Credential=AKIA5UC2SPBF3KFGU36U/20250319/eu-west-1/s3/aws4_request&X-Amz-Signature=dae0886865c8296735f280f2102e9650fe2ab43cc178ddc584af4b95cd0539e7"
+      }
+  ]

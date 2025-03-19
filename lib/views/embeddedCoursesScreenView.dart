@@ -2,9 +2,11 @@
 import 'package:flutter/cupertino.dart'; // For iOS-style widgets like the back icon
 import 'package:flutter/material.dart'; // For Material Design widgets
 import 'package:graduate_plus/utilities/appColors.dart'; // Custom color definitions
+import 'package:graduate_plus/utilities/services/dataService.dart';
 import 'package:graduate_plus/views/courseDetailsScreenView.dart';
 import 'package:graduate_plus/views/eventsDetailScreen.dart';
-import 'package:graduate_plus/widgets/gridViewCardWidget.dart'; // Custom widget for grid view cards
+import 'package:graduate_plus/widgets/gridViewCardWidget.dart';
+import 'package:graduate_plus/widgets/courseGridViewCardWidgets.dart'; // Custom widget for grid view cards
 
 // Main widget for the Embedded Courses screen
 class EmbeddedCoursesScreenView extends StatelessWidget {
@@ -70,81 +72,12 @@ class EmbeddedCoursesScreenView extends StatelessWidget {
             ),
             SizedBox(height: 16.0), // Spacing before the grid view
 
-            // Grid view displaying award activities
-            GridView.builder(
-              shrinkWrap:
-                  true, // Prevents infinite height issue in scrollable column
-              physics:
-                  NeverScrollableScrollPhysics(), // Disables grid’s independent scrolling (handled by parent scroll view)
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, // Two items per row
-                crossAxisSpacing: 16.0, // Horizontal spacing between cards
-                mainAxisSpacing: 16.0, // Vertical spacing between cards
-                childAspectRatio: 0.8, // Controls the aspect ratio of each card
-              ),
-              itemCount: 6, // Number of cards displayed in the grid
-              itemBuilder: (context, index) {
-                // Builds each card using a custom widget
-                return GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Coursedetailsscreenview(),
-                        ));
-                  },
-                  child: GridViewCardWidget(
-                    postedBy: "", // Placeholder for postedBy (not used here)
-                    postedDate: "", // Placeholder for postedDate
-                    imagePath:
-                        'assets/images/bcuFB.png', // Image used in the card
-                    title: index % 2 == 0
-                        ? 'Question sets and reports for students' // Alternates titles based on index
-                        : 'Give feedback - it only takes 2 minutes',
-                    likes: 213, // Static number of likes for display
-                    hasLogo: true, // Displays logo inside the card
-                  ),
-                );
-              },
-            ),
-            SizedBox(height: 24.0), // Spacing before the next section
-
-            // Title for the suggested playlist section
-            Text(
-              'Suggested Playlist', // Playlist section heading
-              style: TextStyle(
-                fontSize: 20.0, // Font size for emphasis
-                fontWeight: FontWeight.bold, // Bold text for visibility
-                color: Colors.black, // Consistent black color
-              ),
-            ),
-            SizedBox(height: 16.0), // Spacing before the playlist grid
-
-            // Grid view displaying suggested playlists
-            GridView.builder(
-              shrinkWrap: true, // Adapts height to its children
-              physics:
-                  NeverScrollableScrollPhysics(), // Scroll handled by the main scroll view
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, // Two cards per row
-                crossAxisSpacing: 16.0, // Space between cards horizontally
-                mainAxisSpacing: 16.0, // Space between cards vertically
-                childAspectRatio: 0.8, // Aspect ratio to control card size
-              ),
-              itemCount: 3, // Number of playlist cards
-              itemBuilder: (context, index) {
-                return GridViewCardWidget(
-                  postedBy: "", // Placeholder text
-                  postedDate: "", // Placeholder text
-                  imagePath:
-                      'assets/images/bcuFB.png', // Image used in the playlist card
-                  title: index % 2 == 0
-                      ? 'Question sets and reports for students' // Alternating card titles
-                      : 'Give feedback - it only takes 2 minutes',
-                  likes: 213, // Static likes for display
-                  hasLogo: true, // Displays logo inside the card
-                );
-              },
+            GridViewCardWidgets(
+              hasLogo: true,
+              postedBy: '',
+              nextScreen: 'course',
+              postedDate: '',
+              futureCourses: DataService.fetchCourses(),
             ),
           ],
         ),

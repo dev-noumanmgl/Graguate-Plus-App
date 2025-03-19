@@ -1,0 +1,44 @@
+[
+    {
+      "id": "1",
+      "title": "Graphic Design",
+      "date": "",
+      "location": "",
+      "publiserName": "BCU",
+      "description": ["Skills to develop during your time at University to be successfull in your course;",
+
+"Computer software skills, e.g. Adobe Creative Cloud software and web design skills",
+"Digital media",
+"Self Management", 
+"Commercial Awareness", 
+"Among Others:",
+
+"The listed events below can help you develop those skills."],
+      "image": "",
+      "videoURL": "",
+      "pdfName": "",
+      "like": 78
+    },
+    {
+        "id": "2",
+        "title": "Music Industries",
+        "date": "",
+        "location": "",
+        "publiserName": "BCU",
+        "description": ["Skills to develop during your time at University to be successfull in your course;",
+
+"Creativity - developed through a range of creative projects",
+"Communication skills - through performing and engaging listeners and how to talk to employers",
+"Teamwork - through working in bands or orchestras as a player, leader or manager",
+"Technical skills and expertise - using technology to produce, record and remix music and sound",
+"Self-management - physical and mental self-discipline achieved through regular practice",
+"Critical reflection - giving and receiving criticism, learning from mistakes and striving for improved performance",
+"Entrepreneurship - how to succeed in a competitive field.",
+"Planning and time management - organising and working towards a project/performance"],
+        "image": "",
+        "videoURL": "",
+      "pdfName": "",
+        "like": 178
+    }
+]
+  
