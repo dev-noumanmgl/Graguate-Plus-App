@@ -86,7 +86,7 @@ class GraduateWeekEventsScreenView extends StatelessWidget {
             EventsGridViewCardWidgets(
               hasLogo: true,
               postedBy: '',
-              nextScreen: 'courseFeedback',
+              nextScreen: '',
               postedDate: '',
               events: DataService.fetchSingleIntroEvent(),
             ),
@@ -100,7 +100,7 @@ class GraduateWeekEventsScreenView extends StatelessWidget {
             EventsGridViewCardWidgets(
               hasLogo: true,
               postedBy: '',
-              nextScreen: 'courseFeedback',
+              nextScreen: 'detail',
               postedDate: '',
               events: DataService.fetchArtEvents(),
             ),
@@ -115,7 +115,7 @@ class GraduateWeekEventsScreenView extends StatelessWidget {
             EventsGridViewCardWidgets(
               hasLogo: true,
               postedBy: '',
-              nextScreen: 'courseFeedback',
+              nextScreen: 'detail',
               postedDate: '',
               events: DataService.fetchBusinessEvents(),
             ),

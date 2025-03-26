@@ -3,6 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:graduate_plus/utilities/appColors.dart';
 import 'package:graduate_plus/utilities/models/eventsModel.dart';
+import 'package:graduate_plus/views/eventFinalDetailScreenView.dart';
+import 'package:graduate_plus/views/graduateEventDetailScreenView.dart';
+import 'package:graduate_plus/views/graduateWeekEventDetailScreenView.dart';
 
 class EventsGridViewCardWidgets extends StatelessWidget {
   final bool hasLogo;
@@ -47,7 +50,32 @@ class EventsGridViewCardWidgets extends StatelessWidget {
           itemBuilder: (context, index) {
             final currentEventDetails = events[index];
             return GestureDetector(
-              onTap: () {},
+              onTap: () {
+                nextScreen == "detail"
+                    ? Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Graduateeventdetailscreenview(
+                            event: events[index],
+                          ),
+                        ))
+                    : nextScreen == "finalDetails"
+                        ? Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => EventsFinalDetailScreenView(
+                                event: events[index],
+                              ),
+                            ))
+                        : Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  GraduateWeekEventDetailScreenView(
+                                event: events[index],
+                              ),
+                            ));
+              },
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(

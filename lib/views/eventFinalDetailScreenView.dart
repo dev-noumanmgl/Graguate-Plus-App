@@ -7,9 +7,9 @@ import 'package:graduate_plus/utilities/textStyles.dart';
 import 'package:graduate_plus/widgets/eventsGridViewCardWidget.dart';
 import 'package:graduate_plus/widgets/gridViewCardWidget.dart';
 
-class Graduateeventdetailscreenview extends StatelessWidget {
+class EventsFinalDetailScreenView extends StatelessWidget {
   final EventsModel event;
-  const Graduateeventdetailscreenview({super.key, required this.event});
+  const EventsFinalDetailScreenView({super.key, required this.event});
   @override
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context)
@@ -101,15 +101,6 @@ class Graduateeventdetailscreenview extends StatelessWidget {
             Text(
               event.description.join("\n"),
               style: TextStyle(fontSize: 16.0, color: Colors.black87),
-            ),
-            SizedBox(height: 16.0),
-
-            EventsGridViewCardWidgets(
-              hasLogo: true,
-              postedBy: '',
-              nextScreen: 'finalDetails',
-              postedDate: '',
-              events: DataService.fetchGraduateEvents(),
             ),
           ],
         ),

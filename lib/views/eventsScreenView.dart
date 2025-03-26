@@ -57,7 +57,7 @@ class EventsScreenView extends StatelessWidget {
             darkBlue, // AppBar background color from appColors.dart
         foregroundColor: whiteColor, // Foreground color (icons & text)
         titleSpacing: 0, // Removes extra padding before the title
-        title: Text('My Content'), // AppBar title
+        title: Text('Events'), // AppBar title
 
         // AppBar action icons
         actions: [

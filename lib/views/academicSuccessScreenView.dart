@@ -106,13 +106,13 @@ class AcademicSuccessScreenView extends StatelessWidget {
               itemCount: 3, // Number of grid items
               itemBuilder: (context, index) {
                 return GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Graduateeventdetailscreenview(),
-                        ));
-                  },
+                  // onTap: () {
+                  //   Navigator.push(
+                  //       context,
+                  //       MaterialPageRoute(
+                  //         builder: (context) => Graduateeventdetailscreenview(),
+                  //       ));
+                  // },
                   child: GridViewCardWidget(
                     postedBy: "",
                     postedDate: "",

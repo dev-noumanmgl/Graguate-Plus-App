@@ -13,7 +13,6 @@ import 'package:graduate_plus/views/messagesScreenView.dart';
 import 'package:graduate_plus/views/myContentScreenView.dart';
 import 'package:graduate_plus/views/postUploadScreenView.dart';
 import 'package:graduate_plus/views/profileScreenView.dart';
-import 'package:graduate_plus/views/subscriptionPlanScreenView.dart';
 
 // List of main drawer items with their titles and icons
 final List<DrawerItem> mainDrawerItems = [
@@ -21,7 +20,6 @@ final List<DrawerItem> mainDrawerItems = [
   DrawerItem(title: "Events", icon: Icons.event),
   DrawerItem(title: "New Posts", icon: Icons.post_add),
   DrawerItem(title: "Messages", icon: Icons.message),
-  DrawerItem(title: "Premium", icon: Icons.star),
   DrawerItem(title: "My Account", icon: Icons.account_circle),
   DrawerItem(title: "Sign Out", icon: Icons.logout),
 ];
@@ -232,14 +230,6 @@ Widget DrawerViewWidget(BuildContext context) {
                           context,
                           MaterialPageRoute(
                             builder: (context) => MessagesScreenView(),
-                          ),
-                        );
-                        break;
-                      case "Premium":
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SubscriptionPlanScreenView(),
                           ),
                         );
                         break;

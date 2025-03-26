@@ -1,11 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:graduate_plus/utilities/appColors.dart';
+import 'package:graduate_plus/utilities/models/eventsModel.dart';
+import 'package:graduate_plus/utilities/services/dataService.dart';
 import 'package:graduate_plus/utilities/textStyles.dart';
 import 'package:graduate_plus/views/graduateEventDetailScreenView.dart';
+import 'package:graduate_plus/widgets/eventsGridViewCardWidget.dart';
 import 'package:graduate_plus/widgets/gridViewCardWidget.dart';
 
 class GraduateWeekEventDetailScreenView extends StatelessWidget {
+  final EventsModel event;
+  const GraduateWeekEventDetailScreenView({super.key, required this.event});
   @override
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context)
@@ -36,20 +41,10 @@ class GraduateWeekEventDetailScreenView extends StatelessWidget {
           children: [
             // Event Title
             Text(
-              'Building and Construction Management',
+              event.title,
               style: TextStyle(
                 fontSize: 22.0,
                 fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(height: 8.0),
-
-            // Event Completion Status
-            Text(
-              '✓ Completed 05/11/2024',
-              style: TextStyle(
-                fontSize: 14.0,
-                color: Colors.green, // Green color for completed status
               ),
             ),
             SizedBox(height: 8.0),
@@ -81,7 +76,7 @@ class GraduateWeekEventDetailScreenView extends StatelessWidget {
                     ),
                     SizedBox(width: 8),
                     Text(
-                      "Jisc",
+                      event.publisherName,
                       style: textStyleBold(blackColor),
                     ),
                   ],
@@ -89,10 +84,9 @@ class GraduateWeekEventDetailScreenView extends StatelessWidget {
                 // Interaction Buttons (Like, Save, Download, Share)
                 Row(
                   children: [
-                    Icon(CupertinoIcons.heart_fill,
-                        size: 22.0, color: darkBlue),
+                    Icon(CupertinoIcons.heart, size: 22.0, color: darkBlue),
                     SizedBox(width: 4.0),
-                    Text('592'),
+                    Text(event.like.toString()),
                     SizedBox(width: 16.0),
                     Icon(CupertinoIcons.bookmark, size: 18.0, color: darkBlue),
                     SizedBox(width: 16.0),
@@ -118,6 +112,14 @@ class GraduateWeekEventDetailScreenView extends StatelessWidget {
             ),
             SizedBox(height: 16.0),
 
+            EventsGridViewCardWidgets(
+              hasLogo: true,
+              postedBy: '',
+              nextScreen: '',
+              postedDate: '',
+              events: DataService.fetchSingleIntroEvent(),
+            ),
+
             // Activities Organized by Days
             ..._buildDaySections(),
           ],
@@ -134,7 +136,6 @@ class GraduateWeekEventDetailScreenView extends StatelessWidget {
         .map((day) => Column(
               children: [
                 SizedBox(height: 16.0),
-                // Day Title
                 Text(
                   day,
                   textAlign: TextAlign.center,
@@ -145,45 +146,25 @@ class GraduateWeekEventDetailScreenView extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 8.0),
-                // GridView displaying event cards
-                GridView.builder(
-                  shrinkWrap:
-                      true, // Ensures the GridView does not take infinite height
-                  physics:
-                      NeverScrollableScrollPhysics(), // Prevents GridView from scrolling separately
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2, // Number of columns in the grid
-                    crossAxisSpacing: 16.0, // Horizontal space between items
-                    mainAxisSpacing: 16.0, // Vertical space between items
-                    childAspectRatio: 0.8, // Aspect ratio of the grid items
-                  ),
-                  itemCount: 2, // Number of items per day
-                  itemBuilder: (context, index) {
-                    return GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  Graduateeventdetailscreenview(),
-                            ));
-                      },
-                      child: GridViewCardWidget(
-                        postedBy: "", // TODO: Add dynamic data
-                        postedDate: "", // TODO: Add dynamic data
-                        imagePath:
-                            'assets/images/bcuFB.png', // Placeholder image
-                        title: index % 2 == 0
-                            ? 'Question sets and reports for students'
-                            : 'Give feedback - it only takes 2 minutes',
-                        likes: 213,
-                        hasLogo: true,
-                      ),
-                    );
-                  },
+                EventsGridViewCardWidgets(
+                  hasLogo: true,
+                  postedBy: '',
+                  nextScreen: 'detail',
+                  postedDate: '',
+                  events:
+                      _fetchEventsForDay(day), // Pass Future<List<EventsModel>>
                 ),
               ],
             ))
+        .toList();
+  }
+
+// Function to return the future list filtered for a specific day
+  Future<List<EventsModel>> _fetchEventsForDay(String day) async {
+    List<EventsModel> allEvents = await DataService.fetchWeekEvents();
+
+    return allEvents
+        .where((event) => event.id.toLowerCase() == day.toLowerCase())
         .toList();
   }
 }

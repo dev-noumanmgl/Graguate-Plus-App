@@ -1,6 +1,6 @@
 [
     {
-        "id": "monday1",
+        "id": "monday",
         "title": "Academic Poster Design (10/03/25)",
         "date": "10 Mar 2025 16:00 - 17:00",
         "location": "Online",
@@ -14,13 +14,13 @@
 "Use the link provided to join the session.",
 
 "If you have any issues, please contact us at graduateplus@bcu.ac.uk."],
-        "image": "",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOrKx_38PPFHBcJOBHd_4muU6ILw1TjWY3ow&s",
         "pdfName": "" ,
         "videoURL": "",
         "like": 78
       },
       {
-        "id": "monday2",
+        "id": "monday",
         "title": "Festivals and Employment Opportunities (10/03/25)",
         "date": "10 Mar 2025 19:00 - 20:00",
         "location": ["In-person",
@@ -36,7 +36,7 @@
         "like": 567
       },
       {
-        "id": "tuesday1",
+        "id": "tuesday",
         "title": "Meet the Enterprise Team (11.03.2025)",
         "date": "11 Mar 2025 17:00 - 18:00",
         "location": ["In-person",
@@ -48,7 +48,7 @@
         "like": 89
       },
       {
-        "id": "tuesday2",
+        "id": "tuesday",
         "title": "Searching for and Applying for 20 Week PG Placement (11/03/25)",
         "date": "11 Mar 2025 14:00 - 15:00",
         "location": "Online",
@@ -61,12 +61,12 @@
 "Use the link provided to join the session.",
 
 "If you have any issues, please contact us at graduateplus@bcu.ac.uk."],
-        "image": "",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOrKx_38PPFHBcJOBHd_4muU6ILw1TjWY3ow&s",
         "pdfName": "" ,"videoURL": "",
         "like": 788
       },
       {
-        "id": "tuesday3",
+        "id": "tuesday",
         "title": "Go Big or Go Home! (11/03/25)",
         "date": "11 Mar 2025 17:00 - 18:00",
         "location": ["In-person",
@@ -78,7 +78,7 @@
         "like": 27
       },
       {
-        "id": "wed1",
+        "id": "wednesday",
         "title": "Problem Solving and Solution Focused Thinking (12/03/25)",
         "date": "12 Mar 2025 15:00 - 16:00",
         "location": ["In Person, C315"],
@@ -89,12 +89,12 @@
 "It's not what you know - work your connections and get the most out of your network.",
 "Use a simple four-step model to achieve your goals and change how you view problems.",
 "Why asking yourself some high-quality questions makes the difference between success and failure."],
-        "image": "",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOrKx_38PPFHBcJOBHd_4muU6ILw1TjWY3ow&s",
         "pdfName": "" ,"videoURL": "",
         "like": 75
       },
       {
-        "id": "wed2",
+        "id": "wednesday",
         "title": "Defeat Procrastination (12/03/25)",
         "date": "12 Mar 2025 17:00 - 18:00",
         "location": ["In Person, C315"],
@@ -105,12 +105,12 @@
 "Use simple prioritisation techniques to plan action.",
 "Know how to get in to 'do and win' mode quickly and effectively.",
 "Learn how to become more efficient in your work."],
-        "image": "",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1Xm7tfEzRGi5Mmtqw08IkhlNoSWo_Nxh-eg&s",
         "pdfName": "" ,"videoURL": "",
         "like": 8
       },
       {
-        "id": "thursday1",
+        "id": "thursday",
         "title": "How to Create Boundaries for Your Wellbeing (13/03/25)",
         "date": "13 Mar 2025 16:00 - 17:00",
         "location": ["Online"],
@@ -129,7 +129,7 @@
         "like": 9
       },
       {
-        "id": "friday1",
+        "id": "friday",
         "title": "Speculative Applications (14/03/25)",
         "date": "14 Mar 2025 19:00 - 19:45",
         "location": ["Online"],
@@ -146,13 +146,13 @@
 
 
 "If you have any issues, please contact us at graduateplus@bcu.ac.uk."],
-        "image": "",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1Xm7tfEzRGi5Mmtqw08IkhlNoSWo_Nxh-eg&s",
         "pdfName": "" ,
         "videoURL": "",
         "like": 267
       },
       {
-        "id": "friday2",
+        "id": "friday",
         "title": "Leveraging Your Network (14/03/25)",
         "date": "14 Mar 2025 16:00 - 17:45",
         "location": ["Online"],
@@ -174,9 +174,9 @@
         "like": 109 
       },
       {
-        "id": "sat1",
+        "id": "friday",
         "title": "Leveraging Your Network (14/03/25)",
-        "date": "14 Mar 2025 16:00 - 17:45",
+        "date": "14 Mar 2025 18:00 - 19:45",
         "location": ["Online"],
         "publiserName": "BCU",
         "description": ["First, reserve the spot and refresh the page, then you will see the option to join the meeting in Teams.",
@@ -191,7 +191,7 @@
 
 
 "If you have any issues, please contact us at graduateplus@bcu.ac.uk."],
-        "image": "",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1Xm7tfEzRGi5Mmtqw08IkhlNoSWo_Nxh-eg&s",
         "pdfName": "" ,"videoURL": "",
         "like": 256
       }

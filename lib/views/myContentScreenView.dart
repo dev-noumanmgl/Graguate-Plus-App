@@ -110,13 +110,13 @@ class ContentListView extends StatelessWidget {
           itemCount: 6, // Number of items to display in the grid
           itemBuilder: (context, index) {
             return GestureDetector(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Graduateeventdetailscreenview(),
-                    ));
-              },
+              // onTap: () {
+              //   Navigator.push(
+              //       context,
+              //       MaterialPageRoute(
+              //         builder: (context) => Graduateeventdetailscreenview(),
+              //       ));
+              // },
               child: GridViewCardWidget(
                 postedBy:
                     "", // Placeholder: Replace with actual data when available

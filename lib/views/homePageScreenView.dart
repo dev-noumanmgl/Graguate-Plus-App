@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:graduate_plus/utilities/appColors.dart';
+import 'package:graduate_plus/utilities/services/dataService.dart';
+import 'package:graduate_plus/widgets/courseGridViewCardWidgets.dart';
 import 'package:graduate_plus/widgets/drawerViewWidget.dart';
+import 'package:graduate_plus/widgets/eventsGridViewCardWidget.dart';
 import 'package:graduate_plus/widgets/gridViewCardWidget.dart';
 import 'package:video_player/video_player.dart';
 
@@ -159,32 +162,12 @@ class _HomePageScreenViewState extends State<HomePageScreenView> {
             SizedBox(height: 8.0),
 
             // Cards Section: Displays awards in a grid format
-            GridView.builder(
-              shrinkWrap: true, // Ensures the grid doesn’t take infinite height
-              physics:
-                  NeverScrollableScrollPhysics(), // Prevents conflict with parent scroll
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, // 2 cards per row
-                crossAxisSpacing: 16.0, // Horizontal spacing
-                mainAxisSpacing: 16.0, // Vertical spacing
-                childAspectRatio: 0.8, // Adjusts card height relative to width
-              ),
-              itemCount: 4, // Total number of cards
-              itemBuilder: (context, index) {
-                return GestureDetector(
-                  onTap: () {},
-                  child: GridViewCardWidget(
-                    postedBy: "", // Placeholder data (update as needed)
-                    postedDate: "",
-                    imagePath: 'assets/images/bcuDiscToolPic.png', // Card image
-                    title: index % 2 == 0
-                        ? 'Question sets and reports for students'
-                        : 'Give feedback - it only takes 2 minutes', // Alternates title text
-                    likes: 213, // Example like count
-                    hasLogo: true, // Displays logo if true
-                  ),
-                );
-              },
+            EventsGridViewCardWidgets(
+              hasLogo: true,
+              postedBy: '',
+              nextScreen: 'detail',
+              postedDate: '',
+              events: DataService.fetchGraduateEvents(),
             ),
 
             SizedBox(height: 16.0),
@@ -200,29 +183,12 @@ class _HomePageScreenViewState extends State<HomePageScreenView> {
             SizedBox(height: 8.0),
 
             // Grid for displaying other projects
-            GridView.builder(
-              shrinkWrap: true,
-              physics:
-                  NeverScrollableScrollPhysics(), // Prevents grid from independently scrolling
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 16.0,
-                mainAxisSpacing: 16.0,
-                childAspectRatio: 0.8,
-              ),
-              itemCount: 3, // Number of project cards
-              itemBuilder: (context, index) {
-                return GridViewCardWidget(
-                  postedBy: "",
-                  postedDate: "",
-                  imagePath: 'assets/images/bcuFB.png', // Project image
-                  title: index % 2 == 0
-                      ? 'Question sets and reports for students'
-                      : 'Give feedback - it only takes 2 minutes', // Alternating titles
-                  likes: 213, // Example likes
-                  hasLogo: true,
-                );
-              },
+            GridViewCardWidgets(
+              hasLogo: true,
+              postedBy: '',
+              nextScreen: 'course',
+              postedDate: '',
+              futureCourses: DataService.fetchCourses(),
             ),
           ],
         ),
